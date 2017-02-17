@@ -1,0 +1,39 @@
+<div class="registrate_form_wrapper">
+	<form action="#" name="registrate" flex="100" layout='column' class="registrate_form">
+		<h2 class="md-display-2 registrate_heading">Registrate</h2>
+		<md-input-container class="md-block" flex="100" flex-gt-sm="100">
+			<label align="left">Name</label>
+			<input required name="name" ng-model="reg.name" md-maxlength="30">
+			<div ng-messages="registrate.name.$error" align="left">
+				<div ng-message="md-maxlength">30 letters max</div>
+				<div ng-message="required">Enter your name</div>
+			</div>
+		</md-input-container>
+		<md-input-container class="md-block" flex="100" flex-gt-sm="100">
+			<label align="left">Password</label>
+			<input required name="pass" type="password" ng-model="reg.pass" md-maxlength="30">
+			<div ng-messages="registrate.pass.$error" align="left">
+				<div ng-message="md-maxlength">30 letters max</div>
+				<div ng-message="required">Enter password</div>
+			</div>
+		</md-input-container>
+		<md-input-container class="md-block" flex="100" flex-gt-sm="100">
+			<label align="left">Confirm Password</label>
+			<input required name="conf_pass" type="password" ng-model="reg.conf_pass" md-maxlength="30">
+			<div ng-messages="registrate.conf_pass.$error" align="left">
+				<div ng-message="md-maxlength">30 letters max</div>
+				<div ng-message="required">Enter password</div>
+			</div>
+		</md-input-container>
+		<md-select ng-model="reg.type" placeholder="Account type" class="md-no-underline">
+			<md-option value="pm">PM</md-option>
+			<md-option value="dev">Developer</md-option>
+		</md-select>
+		<div layout="row" layout-align="center center">
+			<md-button class="md-raised md-primary" ng-click="reg.regUser()">Registrate</md-button>
+		</div>
+		<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+			<md-button class="md-primary" ui-sref="login">Back</md-button>
+		</section>
+	</form>
+</div>

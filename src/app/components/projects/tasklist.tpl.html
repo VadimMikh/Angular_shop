@@ -1,0 +1,17 @@
+<div class="tasks_wrap">
+    <form action="#" name="tasks" flex="100" layout='row'>
+        <md-input-container class="md-block" flex="100" flex-gt-sm="100">
+            <label align="left">What to do</label>
+            <input required name="task" ng-model="tasklist.name" md-maxlength="100">
+            <div ng-messages="tasks.task.$error" align="left">
+                <div ng-message="md-maxlength">100 letters max</div>
+                <div ng-message="required">Enter something and press "ADD"</div>
+            </div>
+        </md-input-container>
+        <div layout="row" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-click="tasklist.addTask()">Add</md-button>
+            <md-button class="md-raised md-warn" ng-click="">Clear</md-button>
+        </div>
+    </form>
+    <tasklist tasks="tasklist.tasks" remove="tasklist.removeTask(id)" status="tasklist.changeStatus(status, id)"></tasklist>
+</div>

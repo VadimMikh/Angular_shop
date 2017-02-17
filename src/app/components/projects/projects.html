@@ -1,0 +1,17 @@
+<md-nav-bar nav-bar-aria-label="navigation links">
+  <md-nav-item md-nav-sref="directives" name="directives">Directives</md-nav-item>
+  <md-nav-item md-nav-sref="slider" name="slider">Slider</md-nav-item>
+  <md-nav-item md-nav-sref="films" name="films">Films</md-nav-item>
+</md-nav-bar>
+<div class="project_page_wrapper" ng-controller="ProjectsController as projects">
+	<div layout="row" class="project_header">
+		<h1 class="user md-display-3 text-center" flex="grow">Projects</h1>
+	</div>
+	<div layout="row">
+	  <div flex ui-view="projectList"></div>
+	  <div flex="25" ui-view="userData"></div>
+	</div>
+	<div class="logout">
+		<md-button class="md-warn" ng-click="projects.logout()">Logout</md-button>
+	</div>
+</div>

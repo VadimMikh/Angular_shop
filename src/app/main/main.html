@@ -1,0 +1,80 @@
+<div layout="column" layout-fill >
+  <div class="container todo" align="center" layout="column" ng-controller="TodoController as todolist">
+    <h2 class="md-display-2" align="center">To Do List</h2>
+    <form action="#" name="todolist.todo" flex="100" layout='row'>
+          <md-input-container class="md-block" flex="100" flex-gt-sm="100">
+            <label align="left">What to do</label>
+            <input required name="todolist.task" ng-model="todolist.task" md-maxlength="100">
+            <div ng-messages="todo.task.$error" align="left">
+              <div ng-message="md-maxlength">100 letters max</div>
+              <div ng-message="required">Enter something and press "ADD"</div>
+            </div>
+          </md-input-container>
+          <div layout="row" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-click="todolist.add(todolist.task)">Add</md-button>
+        <md-button class="md-raised md-warn" ng-click="todolist.clear()">Clear</md-button>
+      </div>
+      </form>
+      <div layout="column">
+        <div class="undone-tasks">
+        <h2 class="md-display-1" ng-class="{'show':todolist.notEmpty}" align="center">Planned tasks</h2>
+          <md-list flex>
+              <md-list-item class="secondary-button-padding" ng-repeat="task in todolist.tasks track by $index" align="left">
+              <p><span>{{$index+1}}. </span>{{ task }}</p>
+              <md-button class="md-warn" ng-click="todolist.remove(this)">Remove</md-button>
+              <md-button class="md-primary" ng-click="todolist.done(this)">Done</md-button>
+          </md-list-item>
+          </md-list>  
+        </div>
+        <div class="done-tasks">
+          <h2 class="md-display-1" ng-class="{'show':todolist.doneNotEmpty}" align="center">Done tasks</h2>
+        <md-list flex>
+              <md-list-item class="secondary-button-padding done-list" ng-repeat="task in todolist.doneTasks track by $index" align="left">
+              <p>{{ task }}</p>
+              <md-button class="md-warn" ng-click="todolist.removeDone(this)">Remove</md-button>
+              <md-button class="md-primary" ng-click="todolist.unDone(this)">UnDone</md-button>
+          </md-list-item>
+          </md-list>
+        </div>
+      </div>
+  </div>
+  <div class="container tarea" align="center" layout="column" ng-controller="TAreaController as txtarea">
+  <h2 class="md-display-2" align="center">Limited textarea</h2>
+  <md-input-container class="md-block">
+        <label align="left">Some text</label>
+        <textarea ng-model="txtarea.text" rows="2" ng-change="txtarea.check()" md-select-on-focus maxlength="100" ng-trim="false"></textarea>
+    </md-input-container>
+    <div align="right" class="ta_counter" ng-class="{red: txtarea.full}">{{txtarea.counter}}</div>
+  </div>
+  <div class="container currency" align="center" layout="column" ng-controller="CurrencyController as currency">
+    <h2 class="md-display-2" align="center">Currency exchange</h2>
+    <div layout="row">
+      <form action="#" name="test" flex layout='row'>
+              <md-input-container class="md-block" flex-gt-sm="">
+                <label align="left">Enter summ to exchange</label>
+          <input type="currency.number" id="currency.summ" name="currency.summ" ng-model="currency.summ" ng-change="currency.count()" pattern="[1-9]\d*?(\.\d{1,2})?" />
+          <div ng-messages="test.summ.$error" role="alert" align="left">
+            <div ng-message-exp="['pattern']">
+              Enter correct summ
+            </div>
+          </div>
+        </md-input-container>
+        <md-select ng-model="currency.curr1" placeholder="..." class="md-no-underline" ng-change="currency.count()">
+          <md-option value="dol">&#36;</md-option>
+          <md-option value="eur">&#8364;</md-option>
+          <md-option value="pnd">&#163;</md-option>
+        </md-select>
+        <div class="md-body-2" flex="5" layout="row" layout-align="center center">to</div>
+        <md-select ng-model="currency.curr2" placeholder="..." class="md-no-underline" ng-change="currency.count()">
+          <md-option value="dol">&#36;</md-option>
+          <md-option value="eur">&#8364;</md-option>
+          <md-option value="pnd">&#163;</md-option>
+        </md-select>
+        <md-input-container class="md-block curr_result" flex-gt-xs>
+          <label align="left">Result</label>
+          <input ng-model="currency.result" disabled>
+        </md-input-container>
+      </form>
+    </div>
+  </div>
+</div>

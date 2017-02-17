@@ -1,0 +1,15 @@
+.ta_counter {
+	margin-top: -40px;
+}
+.red {
+	color: red;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield!important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

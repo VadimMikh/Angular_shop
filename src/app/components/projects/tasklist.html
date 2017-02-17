@@ -1,0 +1,8 @@
+<md-list flex>
+    <md-list-item class="secondary-button-padding task_item" ng-class="{done: task.done}" ng-repeat="task in tasks track by $index" align="left">
+        <p><span>{{$index+1}}. </span>{{ task.name }}</p>
+        <md-button class="md-secondary md-warn" ng-click="remove({id: task.id})">Remove</md-button>
+        <md-button class="md-secondary md-primary" ng-hide="task.done" ng-click="status({status:task.done, id:task.id})">Done</md-button>
+        <md-button class="md-secondary md-primary" ng-show="task.done" ng-click="status({status:task.done, id:task.id})">Undone</md-button>
+    </md-list-item>
+</md-list>

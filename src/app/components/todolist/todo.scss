@@ -1,0 +1,28 @@
+// body {
+// 	padding-bottom: 300px;
+// 	height: auto !important;
+// }
+.todo, .currency, .tarea {
+	padding: 0 15px;
+	width: 50%;
+	margin: 0 auto;
+}
+.todo .done-tasks h2.md-display-1 {
+	color: #8BC34A;
+}
+.todo h2.md-display-1 {
+	display: none;
+}
+.todo h2.md-display-1.show {
+	display: block;
+}
+md-input-container.md-block {
+    display: block;
+}
+.todo p {
+	text-align: left;
+}
+.done-list p {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
