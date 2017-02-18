@@ -1,0 +1,20 @@
+<h1>Shop</h1>
+<span>{{ home.cartCount }}</span>
+<aside>
+    <div ui-tree>
+        <ul ui-tree-nodes="" ng-model="home.data" class="catalog_menu">
+            <li ng-repeat="item in home.data" ui-tree-node>
+                <div>
+                    {{item.title}}
+                </div>
+                <ul ui-tree-nodes="" ng-model="item.nodes">
+                    <li ng-repeat="subItem in item.nodes" ui-tree-node>
+                        <div ng-click="home.openDir(subItem.id)">
+                            {{subItem.title}}
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</aside>

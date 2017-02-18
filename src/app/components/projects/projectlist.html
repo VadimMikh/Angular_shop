@@ -1,7 +1,0 @@
-<md-content>
-	<md-list flex>
-		<md-list-item class="md-1-line" ng-repeat="projectItem in projects.projectsList track by $index" ng-hide="projects.hide(projectItem.users)" ng-click="projects.enter(projectItem.id)" ng-class="{inactive: projects.isactive}">
-				<h3 class="project_item">{{ projectItem.name }}</h3>
-		</md-list-item>
-	</md-list>
-</md-content>
