@@ -1,7 +1,7 @@
-<div md-whiteframe="2" flex-sm="100" layout layout-align="center center">
+<!--<div md-whiteframe="2" flex-sm="100" layout layout-align="center center">
     <h1 class="shop-heading" ui-sref="home">Shop</h1>
-</div>
-<div id="cart" class="cart" ui-sref="cart"><span>Cart: </span>{{ home.cartCount }}</div>
+</div>-->
+<!--<div id="cart" class="cart" ui-sref="cart"><span>Cart: </span>{{ home.cartCount }}</div>-->
 <div class="main">
     <aside class="main__sidebar">
         <div ui-tree>
@@ -12,7 +12,7 @@
                     </div>
                     <ul ui-tree-nodes="" ng-model="item.nodes">
                         <li ng-repeat="subItem in item.nodes" ui-tree-node>
-                            <div ng-click="home.enterCategory(subItem.id)" ui-sref=".category" class="node_title">
+                            <div ng-click="home.enterCategory(subItem.id)" class="node_title">
                                 {{subItem.title}}
                             </div>
                         </li>
@@ -27,7 +27,7 @@
                 <h3 class="product_name" ng-click="home.openDir(product)">{{product.name}}</h3>
                 <p>{{product.description}}</p>
                 <p>{{product.price | currency}}</p>
-                <md-button class="md-raised md-primary" ng-click="home.addToCart(product)">Add to cart</md-button>
+                <md-button class="md-raised md-primary" ng-click="main.addToCart(product)">Add to cart</md-button>
             </li>
         </ul>
         <div ui-view class="category"></div>

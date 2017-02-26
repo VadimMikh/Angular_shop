@@ -8,11 +8,24 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
+      /*.state('home', {
         url: '/',
         templateUrl: 'app/components/shop/home.html',
         controller: 'HomeController',
         controllerAs: 'home'
+      })*/
+      .state('home', {
+        url: '/',
+        views: {
+           "": { 
+            templateUrl: 'app/main/main.html'
+          },
+          "inner@home": {
+            templateUrl: 'app/components/shop/home.html',
+            controller: 'HomeController',
+            controllerAs: 'home'
+           }
+        }
       })
       .state('home.category', {
         url: "category/:categoryId",

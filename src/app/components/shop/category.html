@@ -4,7 +4,7 @@
             <h3 ng-click="home.openDir(catProduct)" class="product_name">{{catProduct.name}}</h3>
             <p>{{catProduct.description}}</p>
             <p>{{catProduct.price | currency}}</p>
-            <md-button class="md-raised md-primary" ng-click="home.addToCart(catProduct)">Add to cart</md-button>
+            <md-button class="md-raised md-primary" ng-click="main.addToCart(catProduct)">Add to cart</md-button>
         </li>
     </ul>
     <div ui-view class="category"></div>

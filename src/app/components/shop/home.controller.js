@@ -11,7 +11,7 @@
     function homeCtrl($log, $state, $rootScope, ShopService) {
         var vm = this;
 
-        vm.cartCount = ShopService.goodsInCartCount() || 0;
+        //vm.cartCount = ShopService.goodsInCartCount() || 0;
 
         vm.data = ShopService.getSidebar();
 
@@ -39,10 +39,11 @@
             vm.category = $rootScope.category;
         })();
 
-        vm.addToCart = function (el) {
+        /*vm.addToCart = function (el) {
             ShopService.addToCart(el);
             vm.cartCount = ShopService.goodsInCartCount();
-        };
+            $rootScope.cartCount = vm.cartCount;
+        };*/
 
     }
 
