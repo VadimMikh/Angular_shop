@@ -1,0 +1,13 @@
+<div class="product_page">
+    <div layout="column" layout-align="center center">
+        <h2>{{product.name}}</h2>
+        <p>{{product.desc}}</p>
+        <div class="price">{{product.price | currency}}</div>
+        <p class="in_cart" ui-sref="cart" ng-show="product.inCart">In Cart</p>
+        <md-input-container class="md-block">
+            <label>Count</label>
+            <input ng-model="product.count" type="number" step="1" min="0" ng-change="product.change()">
+        </md-input-container>
+        <md-button ng-hide="product.inCart" class="md-raised md-primary" ng-click="product.addToCart()">Add to cart</md-button>
+    </div>
+</div>

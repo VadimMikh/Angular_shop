@@ -10,13 +10,27 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/components/shop-home/home.html',
+        templateUrl: 'app/components/shop/home.html',
         controller: 'HomeController',
         controllerAs: 'home'
-        // views: { 
-        //   "": { templateUrl: 'app/components/projects/projects.html' },
-        //   "projectList@projects": { templateUrl: 'app/components/projects/projectlist.html' },
-        //   "userData@projects": { templateUrl: 'app/components/projects/userdata.html' }
+      })
+      .state('home.category', {
+        url: "category/:categoryId",
+        templateUrl: 'app/components/shop/category.html',
+        controller: 'CategoryController',
+        controllerAs: 'category'
+      })
+      .state('product', {
+        url: "/product/:id",
+        templateUrl: 'app/components/shop/product.html',
+        controller: 'ProductController',
+        controllerAs: 'product'
+      })
+      .state('cart', {
+        url: "/cart",
+        templateUrl: 'app/components/shop/cart.html',
+        controller: 'CartController',
+        controllerAs: 'cart'
       });
      /* .state("otherwise", {
         url: "*path",

@@ -1,0 +1,36 @@
+<h1 class="shop-heading">Cart</h1>
+<div class="cart_content">
+    <h2 ng-show="cart.items.length === 0" class="shop-heading">No produsts in Cart</h2>
+    <ul class="cart_items">
+        <li ng-repeat="cartProduct in cart.items" class="cart_item flex" layout-align=" space-between center" >
+            <div class="cart_item_left" layuot="column">     
+                <h3 ng-click="cart.openDir(cartProduct)" class="product_name">{{cartProduct.name}}</h3>
+                <p>{{cartProduct.description}}</p>
+            </div>
+
+            <p class="price">{{cartProduct.price | currency}}</p>
+
+            <md-input-container class="md-block">
+                <label>Count</label>
+                <input ng-model="cartProduct.count" type="number" step="1" min="1" ng-change="cart.totalCnt()">
+            </md-input-container>
+
+            <p class="summary">{{cartProduct.price * cartProduct.count | currency}}</p>
+            <i class="material-icons" ng-click="cart.remove(cartProduct.id)">close</i>
+        </li>
+    </ul>
+    <div class="padded summ_box" md-whiteframe="2"   flex-sm="100" layout layout-align="end center">
+        <p ng-hide="cart.items.length === 0" class="totalCount"><strong>Items: </strong>{{cart.totalCnt()}}</p>
+    </div>
+    <div class="padded summ_box" md-whiteframe="2"   flex-sm="100" layout layout-align="end center">
+        <p ng-hide="cart.items.length === 0" class="totalSumm"><strong>Summary: </strong>{{cart.totalSm() | currency}}</p>
+    </div>
+</div>
+<div ng-hide="cart.items.length === 0" class="buy_wrapper" layout layuot-align="center center">
+    <md-button class="md-raised md-primary" ng-click="cart.buy()">Buy</md-button>
+</div>
+<div ng-show="cart.thanks" class="thanks" layuot-align="center center" layout ng-click="cart.buy()">
+    <div class="tnanks_inner" ng-click="cart.buy()">
+        <h2>Thanks for buying that!</h2>
+    </div>
+</div>
