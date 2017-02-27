@@ -5,7 +5,7 @@
         .module('angularProject')
         .factory('ShopService', shopService);
 
-    function shopService($log) {
+    function shopService($log, $timeout, $http) {
 
         var goodsInCart = [];
 
@@ -236,6 +236,15 @@
         ];
 
         return {
+            fetch: function() {
+                return $timeout(function() {
+                    return $http.get('app/components/shop/sidebar.json').then(function(response) {
+                        $log.info('res');
+                        return response.data;
+                    });
+                }, 30);
+            },
+
             getSidebar: function () {
                 return data;
             },
